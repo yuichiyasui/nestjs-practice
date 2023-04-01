@@ -1,4 +1,9 @@
-import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import {
+  MiddlewareConsumer,
+  CacheModule,
+  Module,
+  NestModule,
+} from '@nestjs/common';
 import { logger } from './logger.middleware';
 import { UserController } from './user/user.controller';
 import { UserService } from './user/user.service';
@@ -12,6 +17,7 @@ const isLocal = () => process.env.NODE_ENV === 'local';
   providers: [UserService],
   imports: [
     ConfigModule.forRoot(),
+    CacheModule.register(),
     MailerModule.forRoot({
       transport: {
         host: process.env.MAIL_HOST,

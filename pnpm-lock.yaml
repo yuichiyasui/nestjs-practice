@@ -15,8 +15,10 @@ specifiers:
   '@types/node': 18.15.10
   '@types/nodemailer': ^6.4.7
   '@types/supertest': 2.0.12
+  '@types/uuid': ^9.0.1
   '@typescript-eslint/eslint-plugin': 5.56.0
   '@typescript-eslint/parser': 5.56.0
+  cache-manager: ^5.2.0
   class-transformer: ^0.5.1
   class-validator: ^0.14.0
   eslint: 8.36.0
@@ -35,21 +37,25 @@ specifiers:
   ts-node: 10.9.1
   tsconfig-paths: 4.1.2
   typescript: 5.0.2
+  uuid: ^9.0.0
   webpack: 5.76.3
 
 dependencies:
   '@nestjs-modules/mailer': 1.8.1_jt3jpdk6bknafyfkpkeexozije
-  '@nestjs/common': 9.3.12_welcnyot5bzd5wa2aovbkxpi4i
+  '@nestjs/common': 9.3.12_5ezc66h7azca7t7jxbenr4bfzy
   '@nestjs/config': 2.3.1_jy37pi22pqa22ux5geb72eebiu
   '@nestjs/core': 9.3.12_qhubmme3ystyvorrsy6sfc2ome
   '@nestjs/platform-express': 9.3.12_ge4qplnzbmfyi5znl534zhtkn4
   '@types/nodemailer': 6.4.7
+  '@types/uuid': 9.0.1
+  cache-manager: 5.2.0
   class-transformer: 0.5.1
   class-validator: 0.14.0
   nodemailer: 6.9.1
   reflect-metadata: 0.1.13
   rimraf: 4.4.1
   rxjs: 7.8.0
+  uuid: 9.0.0
 
 devDependencies:
   '@nestjs/cli': 9.3.0
@@ -893,7 +899,7 @@ packages:
       '@nestjs/core': ^7.0.9 || ^8.0.0 || ^9.0.0
       nodemailer: ^6.4.6
     dependencies:
-      '@nestjs/common': 9.3.12_welcnyot5bzd5wa2aovbkxpi4i
+      '@nestjs/common': 9.3.12_5ezc66h7azca7t7jxbenr4bfzy
       '@nestjs/core': 9.3.12_qhubmme3ystyvorrsy6sfc2ome
       glob: 8.0.3
       inline-css: 4.0.1
@@ -945,7 +951,7 @@ packages:
       - webpack-cli
     dev: true
 
-  /@nestjs/common/9.3.12_welcnyot5bzd5wa2aovbkxpi4i:
+  /@nestjs/common/9.3.12_5ezc66h7azca7t7jxbenr4bfzy:
     resolution: {integrity: sha512-NtrUG2VgCbhmZEO1yRt/Utq16uFRV+xeHAOtdYIsfHGG0ssAV2lVLlvFFAQYh0SQ+KuYY1Gsxd3GK2JFoJCNqQ==}
     peerDependencies:
       cache-manager: <=5
@@ -961,6 +967,7 @@ packages:
       class-validator:
         optional: true
     dependencies:
+      cache-manager: 5.2.0
       class-transformer: 0.5.1
       class-validator: 0.14.0
       iterare: 1.2.1
@@ -976,7 +983,7 @@ packages:
       reflect-metadata: ^0.1.13
       rxjs: ^6.0.0 || ^7.2.0
     dependencies:
-      '@nestjs/common': 9.3.12_welcnyot5bzd5wa2aovbkxpi4i
+      '@nestjs/common': 9.3.12_5ezc66h7azca7t7jxbenr4bfzy
       dotenv: 16.0.3
       dotenv-expand: 10.0.0
       lodash: 4.17.21
@@ -1003,7 +1010,7 @@ packages:
       '@nestjs/websockets':
         optional: true
     dependencies:
-      '@nestjs/common': 9.3.12_welcnyot5bzd5wa2aovbkxpi4i
+      '@nestjs/common': 9.3.12_5ezc66h7azca7t7jxbenr4bfzy
       '@nestjs/platform-express': 9.3.12_ge4qplnzbmfyi5znl534zhtkn4
       '@nuxtjs/opencollective': 0.3.2
       fast-safe-stringify: 2.1.1
@@ -1029,7 +1036,7 @@ packages:
       class-validator:
         optional: true
     dependencies:
-      '@nestjs/common': 9.3.12_welcnyot5bzd5wa2aovbkxpi4i
+      '@nestjs/common': 9.3.12_5ezc66h7azca7t7jxbenr4bfzy
       class-transformer: 0.5.1
       class-validator: 0.14.0
       reflect-metadata: 0.1.13
@@ -1041,7 +1048,7 @@ packages:
       '@nestjs/common': ^9.0.0
       '@nestjs/core': ^9.0.0
     dependencies:
-      '@nestjs/common': 9.3.12_welcnyot5bzd5wa2aovbkxpi4i
+      '@nestjs/common': 9.3.12_5ezc66h7azca7t7jxbenr4bfzy
       '@nestjs/core': 9.3.12_qhubmme3ystyvorrsy6sfc2ome
       body-parser: 1.20.2
       cors: 2.8.5
@@ -1098,7 +1105,7 @@ packages:
       class-validator:
         optional: true
     dependencies:
-      '@nestjs/common': 9.3.12_welcnyot5bzd5wa2aovbkxpi4i
+      '@nestjs/common': 9.3.12_5ezc66h7azca7t7jxbenr4bfzy
       '@nestjs/core': 9.3.12_qhubmme3ystyvorrsy6sfc2ome
       '@nestjs/mapped-types': 1.2.2_5pvgaw2xy5j677zk7xp6almw2q
       class-transformer: 0.5.1
@@ -1123,7 +1130,7 @@ packages:
       '@nestjs/platform-express':
         optional: true
     dependencies:
-      '@nestjs/common': 9.3.12_welcnyot5bzd5wa2aovbkxpi4i
+      '@nestjs/common': 9.3.12_5ezc66h7azca7t7jxbenr4bfzy
       '@nestjs/core': 9.3.12_qhubmme3ystyvorrsy6sfc2ome
       '@nestjs/platform-express': 9.3.12_ge4qplnzbmfyi5znl534zhtkn4
       tslib: 2.5.0
@@ -1387,6 +1394,10 @@ packages:
     dependencies:
       '@types/superagent': 4.1.16
     dev: true
+
+  /@types/uuid/9.0.1:
+    resolution: {integrity: sha512-rFT3ak0/2trgvp4yYZo5iKFEPsET7vKydKF+VRCxlQ9bpheehyAJH89dAkaLEq/j/RZXJIqcgsmPJKUP1Z28HA==}
+    dev: false
 
   /@types/validator/13.7.14:
     resolution: {integrity: sha512-J6OAed6rhN6zyqL9Of6ZMamhlsOEU/poBVvbHr/dKOYKTeuYYMlDkMv+b6UUV0o2i0tw73cgyv/97WTWaUl0/g==}
@@ -2031,6 +2042,12 @@ packages:
   /bytes/3.1.2:
     resolution: {integrity: sha512-/Nf7TyzTx6S3yRJObOAV7956r8cr2+Oj8AC5dt8wSP3BQAoeX58NoHyCU8P8zGkNXStjTSi6fzO6F0pBdcYbEg==}
     engines: {node: '>= 0.8'}
+
+  /cache-manager/5.2.0:
+    resolution: {integrity: sha512-jwXDLtn8tQGS2vGDTKAhee2OhuX/2cgxlh97fqMnWp328VszIn064BFyKZ87dwp9GmlBFuHYfaVQehI85hFwIw==}
+    dependencies:
+      lodash.clonedeep: 4.5.0
+      lru-cache: 7.18.3
 
   /call-bind/1.0.2:
     resolution: {integrity: sha512-7O+FbCihrB5WGbFYesctwmTKae6rOiIzmz1icreWJ+0aA7LJfuqhEso2T9ncpcFtzMQtzXf2QGGueWJGTYsqrA==}
@@ -4367,6 +4384,9 @@ packages:
     dependencies:
       p-locate: 5.0.0
     dev: true
+
+  /lodash.clonedeep/4.5.0:
+    resolution: {integrity: sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==}
 
   /lodash.memoize/4.1.2:
     resolution: {integrity: sha512-t7j+NzmgnQzTAYXcsHYLgimltOV1MXHtlOWf6GjL9Kj8GK5FInw5JotxvbOs+IvV1/Dzo04/fCGfLVs7aXb4Ag==}
