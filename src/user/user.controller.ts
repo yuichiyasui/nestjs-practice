@@ -18,7 +18,7 @@ export class UserController {
   @Post('send-sign-up-email')
   @HttpCode(200)
   @ApiOperation({ summary: 'ユーザー登録用のメールを送信する' })
-  @ApiResponse({ status: 200, description: 'Success' })
+  @ApiResponse({ status: HttpStatus.OK, description: 'Success' })
   async sendSignUpEmail(@Body() body: SendSignUpEmailDto) {
     try {
       await this.userService.sendSignUpEmail(body);
