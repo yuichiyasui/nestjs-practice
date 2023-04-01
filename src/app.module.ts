@@ -9,6 +9,7 @@ import { UserController } from './user/user.controller';
 import { UserService } from './user/user.service';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { ConfigModule } from '@nestjs/config';
+import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
 
 const isLocal = () => process.env.NODE_ENV === 'local';
 
@@ -31,6 +32,13 @@ const isLocal = () => process.env.NODE_ENV === 'local';
       },
       defaults: {
         from: `"Todo App" <${process.env.MAIL_USER}>`,
+      },
+      template: {
+        dir: `${__dirname}/templates`,
+        adapter: new HandlebarsAdapter(),
+        options: {
+          strict: true,
+        },
       },
       preview: isLocal(),
     }),

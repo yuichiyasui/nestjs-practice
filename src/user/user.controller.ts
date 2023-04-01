@@ -1,4 +1,11 @@
-import { Body, Controller, HttpCode, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  HttpCode,
+  Post,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { SendSignUpEmailDto } from './dto/send-sign-up-email.dto';
 import { UserService } from './user.service';
@@ -12,7 +19,14 @@ export class UserController {
   @HttpCode(200)
   @ApiOperation({ summary: 'ユーザー登録用のメールを送信する' })
   @ApiResponse({ status: 200, description: 'Success' })
-  sendSignUpEmail(@Body() body: SendSignUpEmailDto) {
-    this.userService.sendSignUpEmail(body);
+  async sendSignUpEmail(@Body() body: SendSignUpEmailDto) {
+    try {
+      await this.userService.sendSignUpEmail(body);
+    } catch (error) {
+      throw new HttpException(
+        'メールの送信に失敗しました',
+        HttpStatus.INTERNAL_SERVER_ERROR,
+      );
+    }
   }
 }
