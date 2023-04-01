@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  db:
+    container_name: nestjs-practice-db
+    ports:
+      - 5432:5432
+    image: postgres:15.2-alpine
+    environment:
+      POSTGRES_USER: $POSTGRES_USER
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      POSTGRES_DBNAME: $POSTGRES_DBNAME
+      TZ: Asia/Tokyo
