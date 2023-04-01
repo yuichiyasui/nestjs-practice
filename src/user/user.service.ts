@@ -3,6 +3,7 @@ import { MailerService } from '@nestjs-modules/mailer';
 import { Cache } from 'cache-manager';
 
 import { uuid } from 'src/libs/uuid';
+import { VerifySignUpTokenResponseDto } from './dto/response/verify-sign-up-token-response.dto';
 
 @Injectable()
 export class UserService {
@@ -30,5 +31,14 @@ export class UserService {
 
     const ttl = 1000 * 60 * 30; // 30 minutes
     await this.cacheManager.set(`signUpEmail:${token}`, email, ttl);
+  }
+
+  async verifySignUpToken({ token }: { token: string }) {
+    const maybeEmail = await this.cacheManager.get(`signUpEmail:${token}`);
+    if (typeof maybeEmail !== 'string') {
+      throw new Error();
+    }
+
+    return new VerifySignUpTokenResponseDto({ email: maybeEmail });
   }
 }

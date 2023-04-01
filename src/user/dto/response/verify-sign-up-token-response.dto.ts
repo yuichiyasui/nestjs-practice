@@ -1,11 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { IsEmail } from 'class-validator';
 
-export class SendSignUpEmailDto {
+export class VerifySignUpTokenResponseDto {
+  constructor(args: { email: string }) {
+    this.email = args.email;
+  }
+
   @ApiProperty({
     example: 'hoge@example.com',
     title: 'メールアドレス',
   })
-  @IsEmail()
   readonly email!: string;
 }
