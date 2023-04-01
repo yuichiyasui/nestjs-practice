@@ -7,6 +7,7 @@ import {
 import { logger } from './logger.middleware';
 import { UserController } from './user/user.controller';
 import { UserService } from './user/user.service';
+import { PrismaService } from './prisma.service';
 import { MailerModule } from '@nestjs-modules/mailer';
 import { ConfigModule } from '@nestjs/config';
 import { HandlebarsAdapter } from '@nestjs-modules/mailer/dist/adapters/handlebars.adapter';
@@ -15,7 +16,7 @@ const isLocal = () => process.env.NODE_ENV === 'local';
 
 @Module({
   controllers: [UserController],
-  providers: [UserService],
+  providers: [PrismaService, UserService],
   imports: [
     ConfigModule.forRoot(),
     CacheModule.register(),
