@@ -11,6 +11,7 @@ import { SendSignUpEmailRequestDto } from './dto/request/send-sign-up-email-requ
 import { UserService } from './user.service';
 import { VerifySignUpTokenRequestDto } from './dto/request/verify-sign-up-token-request.dto';
 import { VerifySignUpTokenResponseDto } from './dto/response/verify-sign-up-token-response.dto';
+import { SignUpRequestDto } from './dto/request/sign-up-request.dto';
 
 @Controller('user')
 @ApiTags('User')
@@ -48,5 +49,20 @@ export class UserController {
     } catch (error) {
       throw new HttpException('エラーが発生しました', HttpStatus.BAD_REQUEST);
     }
+  }
+
+  @Post()
+  @HttpCode(200)
+  @ApiOperation({ summary: 'ユーザー登録を行う' })
+  @ApiResponse({
+    status: HttpStatus.OK,
+    description: '成功時',
+  })
+  @ApiResponse({
+    status: HttpStatus.BAD_REQUEST,
+    description: 'バリデーションエラー',
+  })
+  async signUp(@Body() body: SignUpRequestDto) {
+    this.userService.signUp(body);
   }
 }
