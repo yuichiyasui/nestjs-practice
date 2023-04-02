@@ -57,14 +57,19 @@ export class UserService {
     const saltRounds = 5;
     const hashedPassword = await bcrypt.hash(body.password, saltRounds);
 
-    // TODO: エラーハンドリング
-    const user = await this.prisma.user.create({
-      data: {
-        name: body.userName,
-        password: hashedPassword,
-        email,
-      },
-    });
+    let createdUser;
+    try {
+      createdUser = await this.prisma.user.create({
+        data: {
+          name: body.userName,
+          password: hashedPassword,
+          email,
+        },
+      });
+    } catch (error) {
+      // TODO: エラーハンドリング
+      throw new Error();
+    }
 
     await this.cacheManager.del(cacheKey);
 
@@ -72,9 +77,10 @@ export class UserService {
       await this.mailerService.sendMail({
         to: email,
         subject: '[Todo App] ユーザー登録完了',
-        template: 'sign-up',
+        template: 'sign-up-complete',
         context: {
-          userName: user.name,
+          userName: createdUser.name,
+          signInUrl: `${process.env.CLIENT_ORIGIN_URL}/sign-in`,
         },
       });
     } catch (error) {
